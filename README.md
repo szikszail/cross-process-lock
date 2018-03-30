@@ -1,4 +1,4 @@
-# lock-it
+# cross-process-lock
 
 Cross-process file locking solution with lock-queue
 
