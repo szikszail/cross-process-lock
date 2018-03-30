@@ -1,0 +1,24 @@
+{
+  "name": "lock-it",
+  "version": "0.0.1",
+  "description": "Cross-process file locking solution with lock-queue",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/szikszail/lock-it.git"
+  },
+  "keywords": [
+    "file",
+    "lock",
+    "lock"
+  ],
+  "author": "Laszlo Szikszai <sziklaszlo@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/szikszail/lock-it/issues"
+  },
+  "homepage": "https://github.com/szikszail/lock-it#readme"
+}
