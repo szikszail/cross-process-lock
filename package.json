@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/szikszail/cross-process-lock/issues"
   },
-  "homepage": "https://github.com/szikszail/cross-process-lock#readme"
+  "homepage": "https://github.com/szikszail/cross-process-lock#readme",
+  "dependencies": {
+    "fs-extra": "^5.0.0",
+    "log4js": "^2.5.3"
+  }
 }
