@@ -4,7 +4,9 @@
   "description": "Cross-process file locking solution with lock-queue",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha ./test/*.spec.js",
+    "coverage": "istanbul cover --include-all-sources ./node_modules/mocha/bin/_mocha --root ./lib -- ./test/*.spec.js",
+    "travis": "istanbul cover --include-all-sources ./node_modules/mocha/bin/_mocha --root ./lib --report lcovonly -- ./test/*.spec.js -R spec && cat ./coverage/lcov.info | node ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "repository": {
     "type": "git",
@@ -12,7 +14,6 @@
   },
   "keywords": [
     "file",
-    "lock",
     "lock"
   ],
   "author": "Laszlo Szikszai <sziklaszlo@gmail.com>",
@@ -24,5 +25,12 @@
   "dependencies": {
     "fs-extra": "^5.0.0",
     "log4js": "^2.5.3"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "coveralls": "^3.0.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^5.0.5",
+    "proxyquire": "^2.0.1"
   }
 }
