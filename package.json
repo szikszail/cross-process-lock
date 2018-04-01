@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha ./test/*.spec.js --timeout 50000",
-    "coverage": "istanbul cover --include-all-sources ./node_modules/mocha/bin/_mocha --root ./lib -- ./test/*.spec.js",
+    "coverage": "istanbul cover --include-all-sources ./node_modules/mocha/bin/_mocha --root ./lib -- ./test/*.spec.js --timeout 50000",
     "travis": "istanbul cover --include-all-sources ./node_modules/mocha/bin/_mocha --root ./lib --report lcovonly -- ./test/*.spec.js -R spec && cat ./coverage/lcov.info | node ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "repository": {
@@ -31,6 +31,7 @@
     "coveralls": "^3.0.0",
     "istanbul": "^0.4.5",
     "mocha": "^5.0.5",
-    "proxyquire": "^2.0.1"
+    "proxyquire": "^2.0.1",
+    "yargs": "^11.0.0"
   }
 }
