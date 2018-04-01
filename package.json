@@ -4,7 +4,7 @@
   "description": "Cross-process file locking solution with lock-queue",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./test/*.spec.js",
+    "test": "mocha ./test/*.spec.js --timeout 50000",
     "coverage": "istanbul cover --include-all-sources ./node_modules/mocha/bin/_mocha --root ./lib -- ./test/*.spec.js",
     "travis": "istanbul cover --include-all-sources ./node_modules/mocha/bin/_mocha --root ./lib --report lcovonly -- ./test/*.spec.js -R spec && cat ./coverage/lcov.info | node ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
