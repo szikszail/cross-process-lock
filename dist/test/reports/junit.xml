@@ -1,0 +1,6 @@
+<testsuites name="jest tests" tests="1" failures="0" time="0.204">
+  <testsuite name="Lock" errors="0" failures="0" skipped="0" timestamp="2018-12-14T21:46:14" time="0.204" tests="1">
+    <testcase classname="Lock should throw error if no file exists to lock" name="Lock should throw error if no file exists to lock" time="0.004">
+    </testcase>
+  </testsuite>
+</testsuites>
