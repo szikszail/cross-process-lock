@@ -1,4 +1,4 @@
-import { readFile, writeFile } from "fs-extra";
+import { readFile, writeFile } from "fs";
 import { logger } from "./logger";
 
 export interface LockMetadata {
@@ -13,17 +13,19 @@ export interface LockMetadata {
  */
 export const readMetadata = (file: string): Promise<LockMetadata> => {
     return new Promise<LockMetadata>((resolve, reject): void => {
-        logger.debug('readMetadata', file);
-        readFile(file, { encoding: 'utf8' }, (err: Error, data: Buffer) => {
-            logger.debug('readMetadata', err, data);
-            /* istanbul ignore if */
+        logger("readMetadata file:%s", file);
+        readFile(file, { encoding: "utf8" }, (err: Error, data: Buffer) => {
+            logger("readMetadata err:%O", err)
+            logger("readMetadata data:%O", data);
             if (err) {
                 reject(err);
             } else {
                 try {
-                    resolve(JSON.parse(String(data)));
+                    const parsed = JSON.parse(String(data));
+                    logger("readMetadata parsed:%O", parsed);
+                    resolve(parsed);
                 } catch (e) {
-                    logger.debug('readMetadata', 'not JSON');
+                    logger("readMetadata not JSON:%O", e);
                     resolve(null);
                 }
             }
@@ -39,19 +41,18 @@ export const readMetadata = (file: string): Promise<LockMetadata> => {
  */
 export const saveMetadata = (file: string, lockTime: number): Promise<void> => {
     return new Promise((resolve, reject) => {
-        logger.debug('saveMetadata', file, lockTime);
+        logger("saveMetadata", file, lockTime);
         const metadata: LockMetadata = {
             pID: process.pid,
             lockTime
         };
-        logger.debug('saveMetadata', metadata);
+        logger("saveMetadata", metadata);
         writeFile(
             file,
             JSON.stringify(metadata),
-            { encoding: 'utf8' },
+            { encoding: "utf8" },
             (err: Error): void => {
-                logger.debug('saveMetadata', 'done', err);
-                /* istanbul ignore if */
+                logger("saveMetadata", "done", err);
                 if (err) {
                     reject(err);
                 } else {

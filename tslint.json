@@ -6,6 +6,7 @@
         true,
         "never-prefix"
       ],
+      "quotemark": [true, "double", "avoid-escape", "avoid-template"],
       "object-literal-sort-keys": false,
       "max-classes-per-file": false,
       "no-any": true,

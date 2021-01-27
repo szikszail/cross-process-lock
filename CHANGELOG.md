@@ -1,5 +1,11 @@
 # cross-process-lock
 
+## 2.0.0
+
+### Changed
+
+* Refactored to TypeScript
+
 ## 1.0.0
 
 ### Added
