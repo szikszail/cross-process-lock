@@ -49,4 +49,9 @@ lock('file.txt').then(unlock => {
 |:-------|:------------|:-------:|
 | `lockTimeout {number}` | timeout (ms) when locks automatically released | 20 minutes |
 | `waitTimeout {number}` | timeout (ms) until lock waits to lock a file | 10 seconds |
-| `debug {boolean}` | should debug messages be printed out | `false` |
+
+## Debug
+
+The package uses the [debug](https://www.npmjs.com/package/debug) NPM package with `cross-process-lock:PID` name, where `PID` is the process ID of the current process.
+
+To enable debug logging, use for example the `DEBUG=cross-process-lock:*` environment variable, but for more information, check the documentation of the [debug](https://www.npmjs.com/package/debug) package.
