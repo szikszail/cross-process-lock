@@ -5,6 +5,7 @@
 ### Changed
 
 * Refactored to TypeScript
+* Replaced log4js logger with debug
 
 ## 1.0.0
 
