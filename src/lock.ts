@@ -1,6 +1,6 @@
 import { logger } from "./logger";
 import { unlock, UnlockFunction } from "./unlock";
-import { existsSync } from "fs-extra";
+import { existsSync } from "fs";
 import { readMetadata, saveMetadata, LockMetadata } from "./metadata";
 
 export interface LockOptions {
