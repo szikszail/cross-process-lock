@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha ./test/*.spec.js --timeout 50000",
-    "coverage": "istanbul cover --include-all-sources ./node_modules/mocha/bin/_mocha --root ./lib -- ./test/*.spec.js --timeout 50000",
-    "travis": "istanbul cover --include-all-sources ./node_modules/mocha/bin/_mocha --root ./lib --report lcovonly -- ./test/*.spec.js --timeout 50000 -R spec && cat ./coverage/lcov.info | node ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+    "coverage": "istanbul cover --include-all-sources ./node_modules/mocha/bin/_mocha --root ./lib -- ./test/*.spec.js --timeout 50000"
   },
   "repository": {
     "type": "git",
@@ -23,15 +22,14 @@
   },
   "homepage": "https://github.com/szikszail/cross-process-lock#readme",
   "dependencies": {
-    "fs-extra": "^5.0.0",
-    "log4js": "^2.5.3"
+    "fs-extra": "^9.1.0",
+    "log4js": "^6.3.0"
   },
   "devDependencies": {
-    "chai": "^4.1.2",
-    "coveralls": "^3.0.0",
+    "chai": "^4.2.0",
     "istanbul": "^0.4.5",
-    "mocha": "^5.0.5",
-    "proxyquire": "^2.0.1",
-    "yargs": "^11.0.0"
+    "mocha": "^8.2.1",
+    "proxyquire": "^2.1.3",
+    "yargs": "^16.2.0"
   }
 }
