@@ -1,5 +1,12 @@
 # cross-process-lock
 
+## 2.0.0
+
+### Changed
+
+* Refactored to TypeScript
+* Replaced log4js logger with debug
+
 ## 1.0.0
 
 ### Added
