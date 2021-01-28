@@ -21,5 +21,7 @@ export const unlock: UnlockFunction = async (file: string): Promise<void> => {
         } catch (e) {
             logger("unlock error during deleting lock file:%s", e);
         }
+    } else {
+        logger("unlock foreign lock file");
     }
 };

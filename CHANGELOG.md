@@ -1,5 +1,12 @@
 # cross-process-lock
 
+## 2.0.1
+
+### Fixed
+
+* Added `tslib`
+* Fixed default timeouts
+
 ## 2.0.0
 
 ### Changed
