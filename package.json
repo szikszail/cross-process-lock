@@ -1,6 +1,6 @@
 {
   "name": "cross-process-lock",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Cross-process file locking solution with lock-queue",
   "main": "index.js",
   "types": "index.d.ts",
@@ -37,7 +37,8 @@
     "node": ">=6.0.0"
   },
   "dependencies": {
-    "debug": "^4.3.1"
+    "debug": "^4.3.1",
+    "tslib": "^2.1.0"
   },
   "devDependencies": {
     "@types/debug": "^4.1.5",

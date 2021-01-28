@@ -11,8 +11,8 @@ export interface LockOptions {
 export type LockFunction = (file: string, options?: LockOptions) => Promise<UnlockFunction>;
 
 const DEFAULT_OPTIONS: LockOptions = {
-    waitTimeout: 12e5,
-    lockTimeout: 1e4,
+    lockTimeout: 12e5,
+    waitTimeout: 1e4,
 };
 const INTERVAL = 500;
 
