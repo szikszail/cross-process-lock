@@ -1,5 +1,9 @@
 # cross-process-lock
 
+![Downloads](https://img.shields.io/npm/dw/cross-process-lock?style=flat-square)
+![Version@npm](https://img.shields.io/npm/v/cross-process-lock?label=version%40npm&style=flat-square)
+![Version@git](https://img.shields.io/github/package-json/v/szikszail/cross-process-lock/master?label=version%40git&style=flat-square)
+
 Cross-process file locking solution with lock-queue
 
 ## Usage
