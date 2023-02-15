@@ -1,0 +1,9 @@
+name: Release
+on:
+  release:
+    types: [created]
+jobs:
+  call_npm_release:
+    uses: szikszail/workflows/.github/workflows/npm-release.yml@v1
+    secrets:
+      npm_token: ${{ secrets.npm_token }}
