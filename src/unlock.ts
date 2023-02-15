@@ -2,12 +2,16 @@ import { existsSync, unlinkSync } from "fs";
 import { logger } from "./logger";
 import { LockMetadata, readMetadata } from "./metadata";
 
-export type UnlockFunction = (file?: string) => Promise<void>;
-
-export const unlock: UnlockFunction = async (file: string): Promise<void> => {
+/**
+ * Releases the cross-process lock for the given file, for the actual process.
+ * 
+ * @param file The path of the file to lock.
+ * @returns 
+ */
+export async function unlock(file: string): Promise<void> {
     logger("unlock file:%s", file);
 
-    const lockFile: string = `${file}.lock`;
+    const lockFile = `${file}.lock`;
 
     if (!existsSync(lockFile)) {
         logger("unlock lock file does not exist");
@@ -24,4 +28,4 @@ export const unlock: UnlockFunction = async (file: string): Promise<void> => {
     } else {
         logger("unlock foreign lock file");
     }
-};
+}

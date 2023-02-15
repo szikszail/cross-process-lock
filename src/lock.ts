@@ -1,5 +1,5 @@
 import { logger } from "./logger";
-import { unlock, UnlockFunction } from "./unlock";
+import { unlock } from "./unlock";
 import { existsSync } from "fs";
 import { readMetadata, saveMetadata, LockMetadata } from "./metadata";
 
@@ -7,8 +7,6 @@ export interface LockOptions {
     lockTimeout?: number;
     waitTimeout?: number;
 }
-
-export type LockFunction = (file: string, options?: LockOptions) => Promise<UnlockFunction>;
 
 const DEFAULT_OPTIONS: LockOptions = {
     lockTimeout: 12e5,
@@ -19,7 +17,20 @@ const INTERVAL = 500;
 export class LockError extends Error {
 }
 
-export const lock: LockFunction = async (file: string, options: LockOptions = {}): Promise<UnlockFunction> => {
+
+export type UnlockFunction = (file?: string) => Promise<void>;
+
+/**
+ * Creates a cross-process lock for the given file, for the actual process.
+ * 
+ * Note, that it will be only a soft-lock, the file will be locked for other
+ * instances of cross-process-lock, or processes using the same API for locking.
+ * 
+ * @param file The path of the file to lock.
+ * @param options The lock options/timeout.
+ * @returns The function to unlock the file.
+ */
+export async function lock(file: string, options: LockOptions = {}): Promise<UnlockFunction> {
     options = {
         ...DEFAULT_OPTIONS,
         ...options,
@@ -76,4 +87,4 @@ export const lock: LockFunction = async (file: string, options: LockOptions = {}
     });
 
     return tryToLock();
-};
+}

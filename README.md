@@ -9,19 +9,14 @@ Cross-process file locking solution with lock-queue
 ## Usage
 
 ``` javascript
-const {
-    lock
-} = require('cross-process-lock');
-const {
-    writeFileSync
-} = require('fs');
+const { lock } = require('cross-process-lock');
+const { writeFileSync } = require('fs');
 // create a lock for the given file
-lock('file.txt').then(unlock => {
-    // do smth with the file here
-    writeFileSync('file.txt', 'some content', 'utf8');
-    // unlock file with the received function
-    return unlock();
-});
+const unlock = await lock('file.txt')
+// do smth with the file here
+writeFileSync('file.txt', 'some content', 'utf8');
+// unlock file with the received function
+return unlock();
 ```
 
 ## API
@@ -32,8 +27,8 @@ lock('file.txt').then(unlock => {
 
 **Arguments**:
 
-* `{string} file` - path of the file needs to be locked
-* `{lockOptions} options` - options to use to lock file, e.g timeouts
+* `{string} file` - the path of the file needs to be locked
+* `{lockOptions} options` - the options to use to lock file, e.g timeouts
 
 **Returns**: `Promise<Function>` - resolved with `unlock` function in case of successful lock; rejected in case of file couldn't be lock in the given timeout
 
@@ -43,16 +38,27 @@ lock('file.txt').then(unlock => {
 
 **Arguments**:
 
-* `{string} file` - path of the file needs to be unlocked
+* `{string} file` - the path of the file needs to be unlocked
 
 **Returns**: `Promise` - resolved in case of successful unlock or rejected in case of any error
 
+### WithLock
+
+`withLock(file[, options], callback)` - executes the callback with locking before and unlocking after the execution
+
+**Arguments**:
+* `{string} file` - path of the file needs to be locked
+* `{lockOptions} options` - the options to use to lock file, e.g timeouts
+* `{() => Promise<T>} callback` - the function to be executed
+
+**Returns**: `Promise<T>` - resolved/rejected with the result of the callback
+
 ### lockOptions
 
-| Option | Description | Default |
-|:-------|:------------|:-------:|
+| Option                 | Description                                    |  Default   |
+| :--------------------- | :--------------------------------------------- | :--------: |
 | `lockTimeout {number}` | timeout (ms) when locks automatically released | 20 minutes |
-| `waitTimeout {number}` | timeout (ms) until lock waits to lock a file | 10 seconds |
+| `waitTimeout {number}` | timeout (ms) until lock waits to lock a file   | 10 seconds |
 
 ## Debug
 

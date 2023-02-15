@@ -1,5 +1,17 @@
 # cross-process-lock
 
+## 2.1.0
+
+### Added
+
+* Added `withLock`
+* Added docstring for the functions
+* Added typedocs
+
+### Changed
+
+* Updated dependencies
+
 ## 2.0.1
 
 ### Fixed
