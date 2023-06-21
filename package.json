@@ -37,7 +37,7 @@
     "node": ">=14.0.0"
   },
   "dependencies": {
-    "tslib": "^2.5.0",
+    "tslib": "^2.5.2",
     "debug": "^4.3.4"
   },
   "devDependencies": {
