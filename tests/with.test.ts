@@ -16,8 +16,10 @@ describe("withLock", () => {
   });
 
   test("should handle missing callback", async () => {
-    // @ts-ignore
-    await expect(withLock(FILE)).rejects.toThrow("Callback function must be set!");
+    // @ts-expect-error Missing argument, intentionally
+    await expect(withLock(FILE)).rejects.toThrow(
+      "Callback function must be set!",
+    );
   });
 
   test("should handle lock error", async () => {
@@ -39,10 +41,14 @@ describe("withLock", () => {
   });
 
   test("should handle explicit options", async () => {
-    await withLock(FILE, {
-      lockTimeout: 1,
-      waitTimeout: 2,
-    }, callback);
+    await withLock(
+      FILE,
+      {
+        lockTimeout: 1,
+        waitTimeout: 2,
+      },
+      callback,
+    );
     expect(lock).toHaveBeenCalledWith(FILE, {
       lockTimeout: 1,
       waitTimeout: 2,

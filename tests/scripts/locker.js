@@ -1,2 +1,2 @@
-const [,, tA, tB] = process.argv;
+const [, , tA, tB] = process.argv;
 console.log(process.argv);
