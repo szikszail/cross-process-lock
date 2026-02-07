@@ -1,5 +1,11 @@
 # cross-process-lock
 
+## 2.2.0
+
+### Changed
+
+* Updated dependencies
+
 ## 2.1.0
 
 ### Added
