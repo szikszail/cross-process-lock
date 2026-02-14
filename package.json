@@ -47,7 +47,7 @@
     "@types/node": "^25.2.1",
     "copyfiles": "^2.4.1",
     "dotenv-ng": "^1.2.1",
-    "eslint": "^9.39.2",
+    "eslint": "^10.0.0",
     "globals": "^17.3.0",
     "jest": "^30.0.0",
     "jest-junit": "^16.0.0",
